@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,1,0"
+    />
+    <title>Sidebar mather</title>
+    <style>
+      * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #2e2c36;
+  color: #f7f7f7;
+  font-family: "Euclid Circular A";
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  background: #211f25;
+  transition: width 0.4s;
+}
+
+.sidebar header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 0 1.25rem 0 0;
+  border-bottom: 1px solid rgb(255 255 255 / 12%);
+}
+
+.sidebar header button {
+  width: 64px;
+}
+
+.sidebar header img {
+  height: 24px;
+  width: 24px;
+  margin-left: 24px;
+  margin-right: 14px;
+  object-fit: contain;
+}
+
+.sidebar button {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0 16px 0 25px;
+  color: #f7f7f7;
+  transition: 0.25s;
+}
+
+.sidebar button.active,
+.subnav {
+  background: #32303c;
+}
+
+.sidebar button:hover {
+  background: #3c3a48;
+}
+
+.sidebar button span:nth-child(2) {
+  flex: 1 1 auto;
+}
+
+.sidebar button.active span:nth-child(3) {
+  rotate: -180deg;
+}
+
+.sub-nav button.active::before {
+  background: #f9f9f9;
+}
+
+.subnav {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  transition: 0.4s;
+}
+
+.subnav-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.subnav button {
+  padding-left: 64px;
+}
+
+.subnav button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 36px;
+  translate: 0 -50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 40%);
+}
+
+.material-symbols-outlined {
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+/* Initial style without "active" class */
+.sidebar {
+  /* ... (your styles) ... */
+  width: 0;
+  overflow-x: hidden; /* Hide horizontal overflow */
+  transition: width 0.4s; /* Add a transition effect */
+}
+
+/* Style with "active" class (when sidebar is open) */
+.sidebar.active {
+  width: 260px; /* Set the desired width */
+  /* ... (other styles) ... */
+}
+
+/* ... (your existing styles) ... */
+
+.toggle-button {
+  position: fixed;
+  top: 0;
+  left: 260px; /* Adjust the left position to match the sidebar width */
+  background: #211f25;
+  color: #f7f7f7;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  z-index: 1; /* Ensure it's above the sidebar content */
+}
+
+/* Style the button when the sidebar is active */
+.sidebar.active .toggle-button {
+  left: 0;
+  background: #3c3a48;
+  color: #f7f7f7;
+}
+
+    </style> 
+  </head>
+  <body>
+    <aside class="sidebar" id="sidebar">
+
+      <button id="toggleButton" class="toggle-button" onclick="toggleSidebar()">
+        Toggle Sidebar
+      </button>
+
+      <header>
+        <img src="logo.svg" />
+        <span> Mather & Mather </span>
+      </header>
+      <button>
+        <span class="material-symbols-outlined"> home </span>
+        <span>Home</span>
+      </button>
+      <button onclick="handleHeaderClicked('tools')">
+        <span class="material-symbols-outlined"> build </span>
+        <span>Tools</span>
+        <span class="material-symbols-outlined"> expand_more </span>
+      </button>
+      <div id="tools" class="subnav">
+        <div class="subnav-inner">
+          <button>
+            <span>Documents</span>
+          </button>
+          <button>
+            <span>Editor</span>
+          </button>
+          <button>
+            <span>Themes</span>
+          </button>
+        </div>
+      </div>
+      <button onclick="handleHeaderClicked('settings')">
+        <span class="material-symbols-outlined"> settings </span>
+        <span>Settings</span>
+        <span class="material-symbols-outlined"> expand_more </span>
+      </button>
+      <div id="settings" class="subnav">
+        <div class="subnav-inner">
+          <button>
+            <span>Display</span>
+          </button>
+          <button>
+            <span>Audio</span>
+          </button>
+          <button>
+            <span>Interface</span>
+          </button>
+          <button>
+            <span>Accessibility</span>
+          </button>
+        </div>
+      </div>
+      <button>
+        <span class="material-symbols-outlined"> account_circle </span>
+        <span>Profile</span>
+      </button>
+      <button>
+        <span class="material-symbols-outlined"> logout </span>
+        <span>Sign Out</span>
+      </button>
+    </aside>
+
+    <button id="toggleButton" onclick="toggleSidebar()">
+      Toggle
+    </button>
+
+    <script src="main.js"></script>
+    <script>
+      // JavaScript code to toggle the sidebar
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

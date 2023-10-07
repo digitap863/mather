@@ -52,6 +52,14 @@
     hr.more_margin {
         margin: 25px 0 30px 0;
     }
+     .banner-counter {
+        background: white;
+        position: relative;
+        width: 100%;
+        margin: auto;
+        
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -377,10 +385,10 @@
         font-size: 13px;
     }
 
-    .slideshow-container {
+    /* .slideshow-container {
         margin-top: 2.5rem;
         border-radius: 10px;
-    }
+    } */
 
     #single_room_feat ul li i {
         font-size: 21px;
@@ -450,12 +458,12 @@
         height:34vh;
     }
 
-    .banner-counter {
+    /* .banner-counter {
         background: white;
         position: relative;
         width: 100%;
         
-    }
+    } */
     .banner-counter div {
     font-size: 1.2rem;
     padding: 0 8px;
@@ -545,6 +553,13 @@ color: #ffe975;
 .prod-detail-img {
     height: 54vh;
 }
+.slideshow-container {
+border-radius: 22px 0px 0px 22px;
+    }
+
+    .banner-counter {
+     margin-bottom: 10px;   
+    }
 }
 
 @media (max-width:768px) {
@@ -568,14 +583,42 @@ color: #ffe975;
 .box-heading h4 {
     font-size: 1.05rem;
     }
+    .slideshow-container {
+        margin-top: 2.5rem;
+        border-radius: 10px;
+    }
+
+
 }
+
 @media (max-width:480px) {
     .prod-bg {
         background: linear-gradient(
           220deg,
              #8d4b1c,
              #2a1e1e 7%
-          )
-          
+          )          
+      }
+    .dot-1 {
+        width: 16px;
+        height: 16px;    
+      }
+
+      .tooltip-popup span {
+        font-size: 13px; 
       }
     }
+
+@media (min-width:568px) and (max-width:992px)  {    
+    .banner-counter {
+        margin-bottom: 16px;
+        width: 75%;
+        
+    }
+}
+
+@media (min-width:1299px)  {  
+    .banner-counter {
+    padding: 30px 16px;
+    }
+}

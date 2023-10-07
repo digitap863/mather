@@ -337,7 +337,7 @@ object-fit: cover;
 
 @keyframes fade {
     0% {
-        opacity: 0.6;
+        opacity: 1;
     }
     10% {
         opacity: 1;
@@ -347,9 +347,9 @@ object-fit: cover;
         scale: 1.075;
     }
     50% {
-        opacity: 0.8;
+        opacity: 1;
     }100% {
-        opacity: 0.8;
+        opacity: .85;
         /* scale: 1.15; */
     }
 }
@@ -958,12 +958,13 @@ text-align: center;
 }
 
 .bg-scroll {
-    height: 100vh;
+    /* height: 110vh;
     background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(../assets/unsplash\ 1.png);
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     position: relative;  
-    background-attachment: fixed;
+    background-attachment: scroll; */
+    /* background-attachment: fixed; */
   }
 
   @media (max-width:768px) {
@@ -972,11 +973,11 @@ text-align: center;
         height: 56vh;
     }
   }
-  @media (min-width:768px) {
+  /* @media (min-width:768px) {
     .bg-scroll {
         padding: 300px;
     }
-  }
+  } */
 
 .promo_full_wp {
     display: table;
@@ -1780,6 +1781,7 @@ ul#cat_nav li a.active {
     min-height: 670px !important; */
     height: 100%;
     width: 100%;
+    overflow:  hidden;
 }
 
 @media (min-width:992px) {
@@ -1844,7 +1846,7 @@ ul#cat_nav li a.active {
     -o-animation: circle infinite .95s linear;
     animation: circle infinite .95s linear;
 
-    border: 2px solid #ed5434;
+    border: 2px solid #653f27;
     border-top-color: rgba(0, 0, 0, .2);
     border-right-color: rgba(0, 0, 0, .2);
     border-bottom-color: rgba(0, 0, 0, .2);
@@ -2219,7 +2221,7 @@ hr.more_margin {
 
 .parallax-window#home {
     min-height: 550px;
-    filter: contrast(0.9);
+    /* filter: contrast(0.9); */
 }
 
 .parallax-window#booking {
@@ -2976,7 +2978,8 @@ swiper-slide img {
 
 .banner-counter {
     
-    background:#dddddd42;
+    /* background:#dddddd42; */
+    background: #fff;
     border-radius: 20px;
     padding: 16px;
     display: flex;
@@ -2990,7 +2993,7 @@ swiper-slide img {
 
 .banner-counter div {
 display: inline-block;
-font-size: 1.5rem;
+font-size: 1.8rem;
 text-align: center;
 margin-top: .475rem;
 margin-bottom: 0;
@@ -3107,4 +3110,113 @@ padding-left: 0;
 
 #prod-container {
     margin:2rem auto auto auto;
+}
+
+ /* .dot {
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%; 
+    position: absolute;
+    top: 10%; 
+    left: 15%;
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+}
+
+.top-left {
+    top: 20px; 
+    left: 20px;
+}
+
+.top-right {
+    top: 20px; 
+    right: 20px;
+}
+
+.bottom-2 {
+    bottom: 20px;
+    left: 50%; 
+    transform: translateX(-50%); 
+}  */
+
+.dot-1 {
+    width: 26px;
+    height: 26px;
+    background-color: #fff;
+    border-radius: 50%; 
+    position: absolute;
+    /* top: 10%; 
+    left: 15%; */
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+    animation: dotAnimation 2s linear infinite;
+    cursor: pointer;
+}
+
+.bgscroll-container {
+    position: relative;
+    text-align: center;
+    color: white;
+  } 
+.bottom-left {
+    position: absolute;
+    bottom: 10%;
+    left: 34%;
+    color: white;
+  }
+  .top-left {
+    position: absolute;
+    top: 16%;
+    left: 14%;
+    color: white;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes dotAnimation {
+    0% {
+        background-color: #f1f1f1; /* Initial style at 0% */
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        background-color: #fff9f9; /* Intermediate style at 50% */
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        background-color: #ddd; /* Final style at 100% */
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Tooltip styles */
+.tooltip-popup {
+    visibility: hidden;
+    width: 142px;
+    background-color: #e6e3e382;
+    color: black;
+    /* font-weight: 700; */
+    text-align: left;
+    border-radius: 10px;
+    padding: 10px 5px;
+    position: absolute;
+    z-index: 2;
+    bottom: 100%; /* Position it above the dot */
+    left: 10%;
+    transform: translateX(-10%);
+    opacity: 0;
+    transition: opacity 0.9s;
+}
+.tooltip-popup span {
+display: block;
+font-size: 15px;
+}
+.dot-1:hover .tooltip-popup {
+    visibility: visible;
+    opacity: 1;
+    /* transform: scale(1); */
 }
